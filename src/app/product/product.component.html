@@ -1,0 +1,69 @@
+<div class="header" style="text-align:center">
+  <h1 style="color:">Product Form</h1>
+</div>
+<form #f="ngForm" name="form" (ngSubmit)="addProduct()" class="row g-12">
+  <div>
+    <div class="col-12">
+      <label for="name">Name</label>&nbsp;
+      <input type="text" id="name" name="name" [(ngModel)]="model.name" />
+    </div>
+    <br />
+    <div class="col-12">
+      <label for="productname">Productname</label>&nbsp;
+      <input
+        type="text"
+        id="pname"
+        name="productname"
+        [(ngModel)]="model.productname"
+      />
+    </div>
+    <br />
+    <div class="col-12">
+      <label for="quantity">Quantity</label>&nbsp;
+      <input
+        type="text"
+        id="qty"
+        name="quantity"
+        [(ngModel)]="model.quantity"
+      />
+    </div>
+    <br />
+    <div class="col-12">
+      <label for="price">Price</label>&nbsp;
+      <input type="text" id="price" name="price" [(ngModel)]="model.price" />
+    </div>
+  </div>
+  <br />
+  <p>
+    <br />
+    <input type="submit" class="btn btn-success" value="save" />
+  </p>
+  <br />
+</form>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>PRODUCTNAME</th>
+      <th>PRICE</th>
+      <th>QUANTITY</th>
+    </tr>
+  </thead>
+  <!-- tbody -->
+  <tbody>
+    <tr *ngFor="let product of product">
+      <td>{{ product.id }}</td>
+      <td>{{ product.name }}</td>
+      <td>{{ product.productname }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>
+        <button (click)="editProduct(product.id)">edit</button>
+      </td>
+      <td>
+        <button (click)="deleteProduct(product.id)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
